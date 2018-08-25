@@ -1,2 +1,32 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+ <h1>New Account</h1>
+
+  <div class="row">
+    <div class="col-md-4">
+      <p>Guidelines for New Accounts</p>
+      <ul>
+        <li>Make sure it rhymes.</li>
+        <li>Don't use the letter "A".</li>
+        <li>The incessant use of hashtags will get you banned.</li>
+      </ul>
+    </div>
+    <div class="col-md-8">
+      <%= form_for @user do |f| %>
+        <div class="form-group">
+          <%= f.label "First Name" %>
+          <%= f.text_field :firstName, class: 'form-control', placeholder: "Enter the Account Holder's Frist Name" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "Second Name" %>
+          <%= f.text_field :secondName, class: 'form-control', placeholder: "Enter the Account Holder's Last Name" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: 'form-control', placeholder: "Enter the Account Holder's Email Address" %>
+          <p> We do not recommend that this email address is used as a recruiting email address which could be seen by coaches</p>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Save", class: 'btn btn-success' %>
+        </div>
+      <% end %>
+    </div>
+  </div>

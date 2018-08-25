@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "users/edit.html.erb", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # describe "GET #index" do
+  #   it "returns http success" do
+  #     render
+  #     expect(render).to have_http_status(:success)
+  #   end
+  # end
 end
