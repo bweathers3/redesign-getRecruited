@@ -89,4 +89,60 @@ RSpec.describe UsersController, type: :controller do
   #   end
   # end
 
+  describe "GET edit" do
+     it "returns http success" do
+       get :edit, params: {id: this_user.id}
+       expect(response).to have_http_status(:success)
+     end
+
+     it "renders the #edit view" do
+       get :edit, params: {id: this_user.id}
+       expect(response).to render_template :edit
+     end
+
+     it "assigns post to be updated to @post" do
+       get :edit, params: {id: this_user.id}
+       user_instance = assigns(:user)
+       expect(user_instance.firstName).to eq this_user.firstName
+       expect(user_instance.secondName).to eq this_user.secondName
+       expect(user_instance.email).to eq this_user.email
+     end
+   end
+
+   # describe "PUT update" do
+   #
+   #      it "updates post with expected attributes" do
+   #        new_firstName = Faker::Name.first_name
+   #        new_secondName = Faker::Name.unique.last_name
+   #        new_email = Faker::Internet.unique.email
+   #
+   #        put :update, :params => { :id this_user3.id, :user => { firstName: new_firstName, secondName: new_secondName, email: new_email } }
+   #
+   #        updated_user = assigns(:user)
+   #        expect(updated_user.id).to eq this_user.id
+   #        expect(updated_user.firstName).to eq new_firstName
+   #        expect(updated_user.secondName).to eq new_secondName
+   #        expect(updated_user.email).to eq new_email
+   #      end
+   #
+   #      # it "redirects to the updated post" do
+   #      #   new_title = RandomData.random_sentence
+   #      #   new_body = RandomData.random_paragraph
+   #      #   put :update, id: my_post.id, post: {title: new_title, body: new_body}
+   #      #   expect(response).to redirect_to my_post
+   #      # end
+   #    end
+
+  describe "DELETE destroy User" do
+    it "deletes the user" do
+      delete :destroy, params: {id: this_user.id}
+      count = User.where({id: this_user.id}).size
+      expect(count).to eq 0
+    end
+
+    it "redirects to users index" do
+      delete :destroy, params: {id: this_user.id}
+      expect(response).to redirect_to users_path
+    end
+  end
 end
