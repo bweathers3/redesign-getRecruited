@@ -3,8 +3,11 @@
   <div class="media">
     <div class="media-body">
       <h4 class="media-heading">
-        <p><%= user.firstName + " " + user.secondName + "             " %><%= link_to user.email, user_path(user.id) %></p>
+        <%= user.firstName + " " + user.secondName%>
       </h4>
+      <small>
+        <%= link_to user.email, user_path(user.id) %>
+      </small>
     </div>
   </div>
 <% end %>

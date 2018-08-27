@@ -48,6 +48,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     # it "redirects to the new user" do
+    #   post :create, params: { this_user2 }
     #   expect(response).to redirect_to User.last
     # end
   end
@@ -63,7 +64,7 @@ RSpec.describe UsersController, type: :controller do
      expect(response).to render_template :show
    end
 
-   it "assigns my_post to @post" do
+   it "assigns this_user to @user" do
      get :show, params: {id: this_user.id}
      expect(assigns(:user)).to eq(this_user)
    end
@@ -81,13 +82,6 @@ RSpec.describe UsersController, type: :controller do
     end
 
   end
-
-  # describe "GET #edit" do
-  #   it "returns http success" do
-  #     get :edit
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
 
   describe "GET edit" do
      it "returns http success" do
