@@ -3,7 +3,7 @@ class CreateAthletes < ActiveRecord::Migration[5.1]
     create_table :athletes do |t|
       t.string :firstName
       t.string :secondName
-      t.boolean :active
+      t.boolean :active, default: true
       t.references :user, foreign_key: true
 
       t.timestamps
